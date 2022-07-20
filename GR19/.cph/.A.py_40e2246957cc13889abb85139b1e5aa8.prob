@@ -1,0 +1,1 @@
+{"name":"Local: A","url":"/Users/tanguyvans/Desktop/compProg/CodeForces/contest/GR19/A.py","tests":[{"id":1644676809361,"input":"3\n3\n2 2 1\n4\n3 1 2 1\n5\n1 2 2 4 4","output":"YES\nYES\nNO"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/tanguyvans/Desktop/compProg/CodeForces/contest/GR19/A.py","group":"local","local":true}

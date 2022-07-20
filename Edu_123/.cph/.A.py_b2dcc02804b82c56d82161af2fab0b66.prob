@@ -1,0 +1,1 @@
+{"name":"Local: A","url":"/Users/tanguyvans/Desktop/compProg/CodeForces/contest/Edu_123/A.py","tests":[{"id":1645544189869,"input":"4\nrgbBRG\nRgbrBG\nbBrRgG\nrgRGBb","output":"YES\nNO\nYES\nNO"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/tanguyvans/Desktop/compProg/CodeForces/contest/Edu_123/A.py","group":"local","local":true}

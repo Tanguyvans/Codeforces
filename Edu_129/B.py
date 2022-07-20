@@ -1,0 +1,10 @@
+for _ in range(int(input())):
+    n = int(input())
+    a = list(map(int, input().split(' ')))
+
+    m = int(input())
+    b = list(map(int, input().split(' ')))
+
+    sb = sum(b)
+
+    print(a[sb % n])

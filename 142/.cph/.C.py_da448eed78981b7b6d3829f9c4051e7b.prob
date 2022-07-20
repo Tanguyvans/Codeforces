@@ -1,0 +1,1 @@
+{"name":"Local: C","url":"/Users/tanguyvans/Desktop/compProg/CodeForces/contest/142/C.py","tests":[{"id":1656696598096,"input":"3 6\n101010\n000100\n100000","output":"3"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/tanguyvans/Desktop/compProg/CodeForces/contest/142/C.py","group":"local","local":true}

@@ -1,0 +1,1 @@
+{"name":"Local: B","url":"/Users/tanguyvans/Desktop/compProg/CodeForces/contest/Edu_123/B.py","tests":[{"id":1645545143281,"input":"2\n4\n3","output":"4 1 3 2\n1 2 4 3\n3 4 1 2\n2 4 1 3\n3 2 1\n1 3 2\n3 1 2"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/tanguyvans/Desktop/compProg/CodeForces/contest/Edu_123/B.py","group":"local","local":true}
