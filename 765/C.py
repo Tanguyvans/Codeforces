@@ -1,26 +1,17 @@
-
 n, l, k = map(int, input().split(' '))
 d = list(map(int, input().split(' ')))
 d.append(l)
+d = [d[i]-d[i-1] for i in range(1, n+1)]
 a = list(map(int, input().split(' ')))
 
-v = [a[i]*(d[i+1]-d[i]) for i in range(len(a))]
-#s = [d[i+1]-d[i] for i in range(len(d)-1) ]
-for i in range(k):
-    delta = 0
-    pos = 0
-    for j in range(1, len(v)):
-        if v[j]-(d[j+1]-d[j])*a[j-1] >= delta:
-            delta = v[j]-(d[j+1]-d[j])*a[j-1]
-            pos = j
-            dist = d[j+1]-d[j]
+sol = [[0 for i in range(n+1)] for j in range(k+1)]
 
-    if delta <= 0:
-        break
+for i in range(k+1):
+    for j in range(i+1, n+1):
+        sol[i][j] = sol[i][j-1]+a[j-1]*d[j-1]
 
-    v[pos-1] = v[pos] + v[pos-1] - delta
-    d[pos] += dist
-    del v[pos]
-    del d[pos+1]
+        for m in range(i, j):
+            print(m)
 
-print(sum(v))
+
+print(sol)
