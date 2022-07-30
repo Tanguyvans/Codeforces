@@ -1,21 +1,18 @@
-mod = [111111111, 11111111, 1111111, 1111111, 111111, 11111, 1111, 111, 11]
-mod = sorted(mod)
-n = 10**10
-l = [0 for i in range(n)]
-for i in mod:
-    l[i] = 1
-    for j in range(i, n):
-        if l[j-i] == 1:
-            l[j] = 1
+sol = [0 for i in range(1100)]
+sol[0] = 1
 
-print(l)
+for i in range(11, 1100):
+    if sol[i-11] == 1:
+        sol[i] = 1
+    if i >= 111:
+        if sol[i-111] == 1:
+            sol[i] = 1
+
 for _ in range(int(input())):
     a = int(input())
-
-    for modi in mod:
-        a = a % modi
-
-    if a != 0:
-        print('NO')
-    else:
+    if a >= 1100:
         print('YES')
+    elif sol[a] == 1:
+        print('YES')
+    else:
+        print('NO')

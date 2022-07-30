@@ -1,32 +1,34 @@
-from collections import deque as dq
+
+def find(i):
+    if users[i] == -1:
+        return i
+    else:
+        return find(users[i])
+
+
 n, m = map(int, input().split())
 
-g = {i: [] for i in range(1, n+1)}
+users = {i: -1 for i in range(1, n+1)}
+ntw = {i: 1 for i in range(1, n+1)}
 
 for i in range(m):
-    a = list(map(int, input().split()))
-    for j in range(1, a[0]+1):
-        g[a[j]].append(i)
+    k = list(map(int, input().split()))
+    nb = k[0]
+    if len(k) > 1:
+        s1 = find(k[1])
+    for j in range(2, nb+1):
+        s2 = find(k[j])
 
+        if s1 != s2:
+            users[max(s1, s2)] = min(s1, s2)
+            ntw[min(s1, s2)] = ntw[s1] + ntw[s2]
 
-d = dq()
-vis = [False for i in range(m)]
-seq = []
+            s1 = min(s1, s2)
 
 for i in range(1, n+1):
-    if vis[i] == False:
-        d.append(i)
-        vis[i] = True
-        nb = 1
-        while len(d) > 0:
-            pos = d.popleft()
-            print(g, pos)
-            for k in g[pos]:
-                if vis[k] == False:
-                    vis[k] = True
-                    d.append(k)
-                    nb += 1
-
-        seq.append(nb)
-
-print(seq)
+    if users[i] == -1:
+        print(ntw[i], end=' ')
+    else:
+        pos = users[i]
+        ntw[i] = ntw[pos]
+        print(ntw[i], end=' ')
