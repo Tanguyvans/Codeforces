@@ -1,42 +1,43 @@
 n = int(input())
 a = list(map(int, input().split()))
 
-ans = 1
-count = 0
-sol = 1
-prev = a[0]
-p1 = 0
-p2 = 0
-for i in range(1, n):
-    if prev >= a[i]:
-        if count < 1:
-            if i >= 2:
-                if a[i-2] < a[i]:
-                    count += 1
-                    prev = a[i]
-                    p2 = i
-                else:
-                    count = 1
-                    ans = max(ans, sol)
-                    sol = 1
-                    p1 = i-1
-                    p2 = i
-                    prev = a[i]
-            else:
-                count += 1
-                p2 = i
-        else:
-            count = 1
-            ans = max(ans, sol)
-            sol = i-p2
-            p1 = p2
-            p2 = i
-            prev = a[i]
-
+seq = [0 for i in range(n)]
+seq[0] = 1
+for i in range(n-1):
+    if a[i] < a[i+1]:
+        seq[i+1] = seq[i] + 1
     else:
-        prev = a[i]
-        sol += 1
+        seq[i+1] = 1
 
-ans = max(ans, sol)
+ans = 0
+j = 0
+lj = 0
+
+k = 0
+lk = 0
+
+fj = False
+fk = False
+for i in range(1, n):
+    ans = max(ans, seq[i])
+    if seq[i] == 1:
+        lj = seq[i-1] - 1
+        j = i-2
+        fj = False
+
+        lk = seq[i-1]
+        k = i-1
+        fk = False
+
+    if a[j] < a[i] and not fj:
+        ans = max(ans, lj+seq[i])
+    else:
+        fj = True
+
+    if i < n-1:
+        if a[k] < a[i+1] and not fk:
+            ans = max(ans, lk+seq[i+1]-1)
+        else:
+            fk = True
 
 print(ans)

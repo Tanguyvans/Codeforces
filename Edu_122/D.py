@@ -1,25 +1,29 @@
-power = [1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384]
+t = 1000
+time = [t+1] * (t+1)
+time[1] = 0
+for i in range(1, t+1):
+    for j in range(1, i+1):
+        ni = i + i // j
+        if ni <= t:
+            time[ni] = min(time[ni], time[i]+1)
+
 
 for _ in range(int(input())):
-    n, k = map(int, input().split(' '))
-    b = list(map(int, input().split(' ')))
-    c = list(map(int, input().split(' ')))
+    n, k = map(int, input().split())
+    b = list(map(int, input().split()))
+    c = list(map(int, input().split()))
 
-    steps = [0 for i in range(10000000)]
-    for i in range(len(b)):
-        stp = 0
-        for j in range(len(power)):
-            if b[i] <= power[j]:
-                stp = j
-                break
+    k = min(k, 12*n)
+    for i in range(n):
+        b[i] = time[b[i]]
 
-        steps2 = steps[:]
-        steps2[stp] = max(steps[stp], c[i])
-        for j in range(len(steps)):
-            if steps[j] != 0:
-                steps2[j+stp] = max(steps2[j+stp], steps[j] + c[i])
-            if j > k:
-                break
-        steps = steps2[:]
+    matrix = [[0 for j in range(k+1)] for i in range(n)]
 
-    print(steps[k])
+    for i in range(n):
+        for j in range(k+1):
+            if j < b[i]:
+                matrix[i][j] = matrix[i-1][j]
+            else:
+                matrix[i][j] = max(c[i] + matrix[i-1][j-b[i]], matrix[i-1][j])
+
+    print(matrix[-1][-1])
