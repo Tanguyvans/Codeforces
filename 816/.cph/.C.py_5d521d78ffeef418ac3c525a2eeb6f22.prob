@@ -1,0 +1,1 @@
+{"name":"Local: C","url":"/Users/tanguyvans/Desktop/compProg/Codeforces/816/C.py","tests":[{"id":1661008944282,"input":"5 5\n1 2 3 4 5\n3 2\n4 2\n3 1\n2 1\n2 2","output":"29\n23\n35\n25\n35"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/tanguyvans/Desktop/compProg/Codeforces/816/C.py","group":"local","local":true}

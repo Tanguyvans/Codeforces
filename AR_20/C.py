@@ -1,22 +1,44 @@
+from heapq import heappush, heappop
 n, m = map(int, input().split())
-
-g = {i: [] for i in range(1, n+1)}
+g = {i: [] for i in range(n)}
 
 for i in range(m):
     a, b, w = map(int, input().split())
 
-    g[a].append([b, w])
-    g[b].append([a, w])
+    g[a-1].append([b-1, w])
+    g[b-1].append([a-1, w])
 
-pos = 1
-vis = [float('inf') for i in range(n+1)]
+parent = [-1 for i in range(n)]
+dist = [float('inf') for i in range(n)]
 
-vis[1] = 0
+vis = set()
 
-for i in range(n):
-    for k, w in g[pos]:
-        vis[k] = min(vis[k], w)
+d = []
+d.append((0, 0))
+dist[0] = 0
 
-    for j in
+while d:
+    w, pos = heappop(d)
+    vis.add(pos)
+    for i, wi in g[pos]:
+        if i not in vis:
+            if w + wi < dist[i]:
+                dist[i] = w + wi
+                parent[i] = pos
+                heappush(d, (dist[i], i))
 
-print(vis)
+sol = [n-1]
+mid = n-1
+
+while parent[mid] != -1:
+    sol.append(parent[mid])
+    mid = parent[mid]
+
+if sol[-1] != 0:
+    print(-1)
+else:
+    sol.reverse()
+    for s in sol:
+        print(s+1, end=' ')
+
+    print('')
