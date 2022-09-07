@@ -1,3 +1,7 @@
+import io
+import os
+input = io.BytesIO(os.read(0, os.fstat(0).st_size)).readline
+
 for _ in range(int(input())):
     n = int(input())
 
@@ -9,13 +13,12 @@ for _ in range(int(input())):
         a.append(ai)
         b.append(bi)
 
-    ans = 0
-    start = a[0]
-    for i in range(1, n):
-        ans += max(0, a[i]-b[i-1])
-        start = min(start, b[i-1], a[i])
+    ans = 10**18
+    sol = 0
+    for i in range(n):
+        mn = min(a[i], b[i-1])
+        sol += a[i] - mn
 
-    start = min(start, b[-1], a[0])
-    ans += max(a[0]-b[-1], 0)
-    ans += start
-    print(ans)
+        ans = min(ans, mn)
+
+    print(sol + ans)

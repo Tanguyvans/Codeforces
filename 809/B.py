@@ -1,17 +1,25 @@
 for _ in range(int(input())):
     n = int(input())
+    a = list(map(int, input().split()))
 
-    numbers = dict()
-    c = list(map(int, input().split()))
-    ans = 0
+    s1 = [[0, 0] for i in range(n)]
+    s2 = [[0, 0] for i in range(n)]
     for i in range(n):
-        if c[i] not in numbers:
-            numbers[c[i]] = [1, i]
-        else:
-            last_i = numbers[c[i]][1]
-            if last_i == 1 or last_i % 2 == 0:
-                numbers[c[i]][0] += 1
-                numbers[c[i]][1] = i
-                ans = max(ans, numbers[c[i]][0])
 
-    print(ans)
+        if s1[a[i]-1][0] == 0 and s1[a[i]-1][1] == 0:
+            s1[a[i]-1][0] += 1
+            s1[a[i]-1][1] = i
+        elif s1[a[i]-1][0] != 0 and s1[a[i]-1][1] % 2 != i % 2:
+            s1[a[i]-1][0] += 1
+            s1[a[i]-1][1] = i
+        elif s2[a[i]-1][0] == 0 and s2[a[i]-1][1] == 0:
+            s2[a[i]-1][0] += 1
+            s2[a[i]-1][1] = i
+        elif s2[a[i]-1][0] != 0 and s2[a[i]-1][1] % 2 != i % 2:
+            s2[a[i]-1][0] += 1
+            s2[a[i]-1][1] = i
+
+    for i in range(n):
+        print(max(s1[i][0], s2[i][0]), end=' ')
+
+    print()

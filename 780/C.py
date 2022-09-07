@@ -1,7 +1,21 @@
 for _ in range(int(input())):
+    a = input()
+    a = [i for i in a]
+    n = len(a)
+    ans = 0
+    d = set()
 
-    word = input()
+    for i in range(n):
+        ai = a[i]
 
-    letters = [i for i in word]
+        if d:
+            if ai in d:
+                ans += 2
+                d = set()
+            else:
+                d.add(ai)
 
-    print(letters)
+        else:
+            d.add(ai)
+
+    print(n-ans)

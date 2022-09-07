@@ -1,0 +1,1 @@
+{"name":"Local: B","url":"/Users/tanguyvans/Desktop/compProg/Codeforces/BR_1/B.py","tests":[{"id":1661185045074,"input":"2\nR23C55\nBC23","output":"BC23\nR23C55"},{"id":1661186540438,"input":"1\nR875C898","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/tanguyvans/Desktop/compProg/Codeforces/BR_1/B.py","group":"local","local":true}

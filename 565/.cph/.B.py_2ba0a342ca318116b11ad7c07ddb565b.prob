@@ -1,0 +1,1 @@
+{"name":"Local: B","url":"/Users/tanguyvans/Desktop/compProg/Codeforces/565/B.py","tests":[{"id":1662579677207,"input":"2\n5\n3 1 2 3 1\n7\n1 1 1 1 1 2 2","output":""},{"id":1662579707325,"input":"1\n5\n3 3 3 3 3","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/tanguyvans/Desktop/compProg/Codeforces/565/B.py","group":"local","local":true}
